@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LDCE Annual Sports Week Registration</title>
+    <style>
+
+      body {font-family: Arial, sans-serif;background-color: aquamarine;}
+      #frm{
+        margin-left: 37%;
+      }
+
+      div button {margin: 10px;margin-left: 70px;}
+
+      h1 {text-align: center;}
+
+      .form-group {margin-bottom: 20px;}
+
+      label {font-weight: bold;}
+
+      input[type="text"],
+      input[type="email"],
+      select {width: 25%;padding: 10px;
+        border: 1px solid #ccc;border-radius: 4px;}
+      select {width: auto;}
+
+      #full-name{margin-left: 20px;}
+      #gender{  margin-left: 40px;}
+      #branch{margin-left: 40px;}
+      #semester{margin-left: 22px;}
+      #enrollment-number{margin-left: 44px;}
+      #email{margin-left: 32px;}
+      #mobile-number{  margin-left: 18px;}
+
+      button {padding: 10px 20px;background-color: #4caf50;
+        color: white;border: none;
+        border-radius: 4px;cursor: pointer;}
+
+      button:hover {background-color: #45a049;}
+
+    </style>
+  </head>
+  <body>
+    <h1>LDCE Annual Sports Week Registration</h1>
+    <div id="frm">
+
+      <form id="registration-form" onsubmit="validateForm(event)">
+        <div class="form-group">
+          <label for="full-name">Full Name:</label>
+          <input type="text"id="full-name"name="full-name"class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" class="form-control">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="branch">Branch:</label>
+          <input type="text" id="branch" name="branch" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="semester">Semester:</label>
+          <input type="text" id="semester" name="semester" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="enrollment-number">En. No:</label>
+          <input type="text" id="enrollment-number" name="enrollment-number" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email ID:</label>
+          <input type="email" id="email" name="email" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="mobile-number">Mobile No:</label>
+          <input type="text" id="mobile-number" name="mobile-number" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label for="event">Select Event:</label>
+          <select id="event" name="event" class="form-control">
+            <option value="">Select Event</option>
+            <option value="table-tennis">Table Tennis</option>
+            <option value="football">Football</option>
+            <option value="volleyball">Volleyball</option>
+            <option value="kabaddi">Kabaddi</option>
+          </select>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+      </form>
+
+    <script>
+      document
+        .getElementById("registration-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+
+          // Perform validation
+          const fullName = document.getElementById("full-name").value.trim();
+          const gender = document.getElementById("gender").value;
+          const branch = document.getElementById("branch").value.trim();
+          const semester = document.getElementById("semester").value.trim();
+          const enrollmentNumber = document
+            .getElementById("enrollment-number")
+            .value.trim();
+          const email = document.getElementById("email").value.trim();
+          const mobileNumber = document
+            .getElementById("mobile-number")
+            .value.trim();
+          const selectedEvent = document.getElementById("event").value;
+
+          let isValid = true; // Flag to track form validity
+          let errorMessage = ""; // Error message container
+
+          // Validate full name
+          if (fullName === "") {
+            isValid = false;
+            errorMessage += "Please enter your full name.\n";
+          }
+
+          // Validate gender
+          if (gender === "") {
+            isValid = false;
+            errorMessage += "Please select your gender.\n";
+          }
+
+          // Validate branch
+          if (branch === "") {
+            isValid = false;
+            errorMessage += "Please enter your branch.\n";
+          }
+
+          // Validate semester
+          if (semester === "") {
+            isValid = false;
+            errorMessage += "Please enter your semester.\n";
+          }
+
+          // Validate enrollment number
+          if (enrollmentNumber === "") {
+            isValid = false;
+            errorMessage += "Please enter your enrollment number.\n";
+          }
+
+          // Validate email
+          if (email === "") {
+            isValid = false;
+            errorMessage += "Please enter your email address.\n";
+          } else if (!isValidEmail(email)) {
+            isValid = false;
+            errorMessage += "Please enter a valid email address.\n";
+          }
+
+          // Validate mobile number
+          if (mobileNumber === "") {
+            isValid = false;
+            errorMessage += "Please enter your mobile number.\n";
+          } else if (!isValidMobileNumber(mobileNumber)) {
+            isValid = false;
+            errorMessage += "Please enter a valid mobile number.\n";
+          }
+
+          // Validate event selection
+          if (selectedEvent === "") {
+            isValid = false;
+            errorMessage += "Please select an event.\n";
+          }
+
+          if (isValid) {
+            // Form is valid, submit the form or perform further actions
+            // Example: You can display a success message or redirect to another page
+            alert("Form submitted successfully!");
+          } else {
+            // Display error message
+            alert(
+              "Form validation failed. Please check the following:\n" +
+                errorMessage
+            );
+          }
+        });
+
+      // Helper function to validate email address
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      // Helper function to validate mobile number
+      function isValidMobileNumber(mobileNumber) {
+        const mobileNumberRegex = /^[89]\d{9}$/;
+        return mobileNumberRegex.test(mobileNumber);
+      }
+    </script>
+  </body>
+</html>

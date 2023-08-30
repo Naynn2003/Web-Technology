@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rotation and Scaling with CSS</title>
+    <style>
+      .container {
+        display: inline;
+        flex-direction: column;
+        align-items: center;
+      }
+      img {
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        border: 2px solid black;
+        border-radius: 10px;
+        transition: transform 0.5s ease;
+      }
+      img:hover {
+        transform: rotate(360deg) scale(1.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Rotation and Scaling with CSS</h1>
+      <h2>Hover over the images to see the effect:</h2>
+      <img src="Images/th.jpg" alt="Image 1">
+      <img src="Images/1.jpg" alt="Image 2">
+      <img src="Images/Leh-Thiksey_Monastery.jpg" alt="Image 3">
+    </div>
+  </body>
+</html>

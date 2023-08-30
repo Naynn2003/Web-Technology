@@ -1,0 +1,27 @@
+<form action="submit-form.php" method="post">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required><br><br>
+
+  <label for="address">Address:</label>
+  <textarea id="address" name="address" rows="4" cols="30" required></textarea><br><br>
+
+  <label for="subject">Subject of book:</label><br>
+  <input type="radio" id="fiction" name="subject" value="fiction" required>
+  <label for="fiction">Fiction</label><br>
+  <input type="radio" id="non-fiction" name="subject" value="non-fiction">
+  <label for="non-fiction">Non-Fiction</label><br><br>
+
+  <label for="author">Favorite author:</label>
+  <select id="author" name="author" required>
+    <option value="">Select an author:</option>
+    <option value="jane-austen">Jane Austen</option>
+    <option value="charles-dickens">Charles Dickens</option>
+    <option value="ernest-hemingway">Ernest Hemingway</option>
+    <option value="stephen-king">Stephen King</option>
+  </select><br><br>
+
+  <label for="comments">Comments on last book read:</label><br>
+  <textarea id="comments" name="comments" rows="4" cols="30"></textarea><br><br>
+
+  <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>EC-LDCE Spring Fever-2021 Registration Form</title>
+	<style>
+		h1{text-align: center;}
+		div{
+			text-align: center;
+			margin: 15px 0px;
+		}
+		label{
+			margin-right: 10px;
+		}
+		label[for="cultural-evenrs"]{
+			display: block;
+		}
+
+		input[type="checkbox"] {
+			margin-right: 10px;
+		}
+		button {
+			margin-top: 20px;
+			padding: 10px 20px;
+			background-color: rgb(230, 218, 218);
+			color: black;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>EC-LDCE Spring Fever-2021 Registration Form</h1>
+	<form>
+		<div>
+			<label for="name">Name:</label>
+			<input type="text" id="name">
+		</div>
+		<div>
+			<label>Gender:</label>
+			<label for="male">Male</label>
+			<input type="radio" id="male" name="gender">
+			<label for="female">Female</label>
+			<input type="radio" id="female" name="gender">
+		</div>
+		<div>
+			<label for="cultural-events">Cultural Events:</label>
+			<label for="dance">Dance</label>
+			<input type="checkbox" id="dance">
+			<label for="music">Music</label>
+			<input type="checkbox" id="music">
+			<label for="drama">Drama</label>
+			<input type="checkbox" id="drama">
+		</div>
+		<div>
+			<button type="button" id="register-btn">Register</button>
+		</div>
+		</form>
+	<script>
+		const nameInput = document.getElementById("name");
+		const maleRadio = document.getElementById("male");
+		const femaleRadio = document.getElementById("female");
+		const danceCheckbox = document.getElementById("dance");
+		const musicCheckbox = document.getElementById("music");
+		const dramaCheckbox = document.getElementById("drama");
+		const registerBtn = document.getElementById("register-btn");
+
+		registerBtn.addEventListener("click", () => {
+			let name = nameInput.value.trim();
+			let gender = "";
+			let events = "";
+
+			if (maleRadio.checked) {
+				gender = "Male";
+			} else if (femaleRadio.checked) {
+				gender = "Female";
+			}
+
+			if (danceCheckbox.checked) {
+				events += "Dance ";
+			}
+
+			if (musicCheckbox.checked) {
+				events += "Music ";
+			}
+
+			if (dramaCheckbox.checked) {
+				events += "Drama ";
+			}
+
+			if (!name || !gender || !events) {
+				alert("Please fill in all fields.");
+			} else {
+				alert(`Registration successful!\nName: ${name}\nGender: ${gender}\nEvents: ${events}`);
+			}
+		});
+	</script>
+</body>
+</html>

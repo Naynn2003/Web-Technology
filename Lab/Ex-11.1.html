@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Print First N Odd Numbers</title>
+  </head>
+  <body>
+    <label for="number">Enter a number:</label>
+    <input type="number" id="number">
+    <button onclick="printOddNumbers()">Print</button>
+    <ol id="output"></ol>
+    <script>
+      function printOddNumbers() {
+        var number = parseInt(document.getElementById("number").value);
+        var outputList = document.getElementById("output");
+        outputList.innerHTML = ""; // Clear previous results
+        for (var i = 1; i <= number; i++) {
+          outputList.innerHTML += "<li>" + (2 * i - 1) + "</li>";
+        }
+      }
+    </script>
+  </body>
+</html>
